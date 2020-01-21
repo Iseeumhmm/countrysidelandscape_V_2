@@ -130,7 +130,7 @@ export default {
       // },
     ]
   },
-  siteRoot: 'https://review.rickheffren.com',
+  siteRoot: 'https://testing.rickheffren.com',
   webpack: (config, { stage }) => {
     if (stage === 'prod') {
       config.entry = ['babel-polyfill', config.entry]
