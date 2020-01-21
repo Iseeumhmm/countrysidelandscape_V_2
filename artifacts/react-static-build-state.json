@@ -1,0 +1,61 @@
+{
+  "prefetchRate": 5,
+  "maxThreads": null,
+  "disableRoutePrefixing": false,
+  "outputFileRate": 100,
+  "extensions": [
+    ".js",
+    ".jsx"
+  ],
+  "minLoadTime": 200,
+  "disablePreload": false,
+  "disableRuntime": false,
+  "preloadPollInterval": 300,
+  "productionSourceMaps": false,
+  "entry": "index.js",
+  "siteRoot": "https://review.rickheffren.com",
+  "plugins": [
+    [
+      "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/node_modules/react-static-plugin-source-filesystem/node.api.js",
+      {
+        "location": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/src/pages"
+      }
+    ],
+    "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/node_modules/react-static-plugin-reach-router/browser.api.js",
+    "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/node_modules/react-static-plugin-sitemap/dist/node.api.js",
+    "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape"
+  ],
+  "paths": {
+    "ROOT": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape",
+    "SRC": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/src",
+    "DIST": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/dist",
+    "ASSETS": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/dist",
+    "PLUGINS": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/plugins",
+    "TEMP": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/tmp",
+    "ARTIFACTS": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/artifacts",
+    "PUBLIC": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/public",
+    "NODE_MODULES": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/node_modules",
+    "EXCLUDE_MODULES": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/node_modules",
+    "PACKAGE": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/package.json",
+    "HTML_TEMPLATE": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/dist/index.html",
+    "STATIC_DATA": "/Users/rickheffren/Documents/WebDevelopment/CountrysideLandscape/dist/staticData"
+  },
+  "basePath": "",
+  "publicPath": "https://review.rickheffren.com/",
+  "assetsPath": "",
+  "extractCssChunks": false,
+  "inlineCss": false,
+  "babelExcludes": [],
+  "devServer": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "terser": {
+    "terserOptions": {
+      "mangle": {},
+      "parse": {},
+      "compress": {},
+      "output": {}
+    }
+  }
+}
