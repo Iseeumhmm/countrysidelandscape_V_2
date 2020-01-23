@@ -23,7 +23,6 @@ export default {
       {
         path: '/about',
         template: 'src/pages/about.js'
-        
       },
       // {
       //   path: '/our-work',

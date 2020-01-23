@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
 import ViewStack from '../containers/springs/view-pager'
+import instagram from '../components/helperFuncrtions/getInstagram'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
 const swipe = require('../images/icons/swipe-left.png')
@@ -65,6 +66,7 @@ const swipeGesture = keyframes`
 `
 const TextContainer = styled.div`
     width: 95%;
+    /* height: ${(instagram) => instagram ? "52rem" : "auto"}; */
     margin: auto;
     position: relative;
     h1 { color: white; }
@@ -135,11 +137,15 @@ const ViewStackContainer = styled.div`
     @media( min-width: 950px ){
         height: 60rem;
     }
+    @media( min-width: 1300px ) {
+        height: ${({instagram}) => instagram ? "70rem" : "60rem"};
+    }
 `
 
 export default function Pools() {
     const { contentfulImages } = useRouteData()
     const [ divWidth, setDivWidth ] = useState(null)
+    const [ instagramFeed, setInstagramFeed ] = useState(null)
     const getWidth = (ele) => {
         setDivWidth(ele)
     }
@@ -147,10 +153,16 @@ export default function Pools() {
         let element = document.getElementById("view-pager-container").offsetWidth
         getWidth(element)
         window.addEventListener( 'resize', getWidth(element) );
-
+        
         return () => window.removeEventListener('resize', getWidth )
-
     }, [divWidth])
+    useEffect(() => {
+        instagram().then( (result) => {
+            setInstagramFeed(result)
+        }, (error) => {
+            console.log("There was an error retrieveing the instagram feed: ", error)
+        } )
+    }, [])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
             <BackgroundContainer >
@@ -164,12 +176,19 @@ export default function Pools() {
                         <a href={catalogue} download>Download Pool Catalogue</a>
                         <ViewStackContainer id="view-pager-container">
                             <h2>View our past projects</h2>
-                            { divWidth ? <ViewStack width={divWidth} images={contentfulImages}/> : ""}
+                            { divWidth ? <ViewStack width={divWidth} slideType="contentful" slideImages={contentfulImages}/> : ""}
                         </ViewStackContainer>
                         <img src={swipe} alt="swipe gesture"></img>
                     </TextContainer>
                     <TextContainer>
-                        <p><b>We bring your vision to life with our expertise.</b>  Countryside Landscape is a one-stop shop for custom landscapes. Our objective is to create unique spaces that are tailored to your site specific challenges. Whether your project scope is a small pocket garden in a downtown location or a sprawling country estate, we are committed to excellence in every stage of our project.</p>
+                        <ViewStackContainer instagram id="view-pager-container-2">
+                            <h2>Swipe through our Instagram Feed!</h2>
+                            { divWidth ? instagramFeed ? <ViewStack width={divWidth} slideType="instagram" slideImages={instagramFeed}/> : <h2>Loading...</h2> : ""}
+                        </ViewStackContainer>
+                    </TextContainer>
+                    <TextContainer>
+                        <h2>We bring your vision to life with our expertise.</h2>  
+                        <p>Countryside Landscape is a one-stop shop for custom landscapes. Our objective is to create unique spaces that are tailored to your site specific challenges. Whether your project scope is a small pocket garden in a downtown location or a sprawling country estate, we are committed to excellence in every stage of our project.</p>
 
                         <h1>Pools &amp; Landscaping</h1>
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features throughout southern Ontario.
