@@ -127,7 +127,7 @@ export default function Viewpager(propsFrom) {
         </Link>  : null }
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: pages[i][2] !== "VIDEO" ? `url(${pages[i][1]})` : "unset" }}>
-          {pages[i][2] === "VIDEO" ? <VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} /> : ""}
+          {pages[i][2] === "VIDEO" ? <VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} preload="metadata"/> : ""}
         </ animated.div>
 
         {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" href={passedType === "instagram" ? `${pages[i][3]}` : ""}>

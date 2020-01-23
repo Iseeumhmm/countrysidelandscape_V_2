@@ -18,9 +18,6 @@ const theme = {
 }
 
 const GlobalStyle = createGlobalStyle`
-  /* @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet'); */
-  /* @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,700|Roboto:300&display=swap'); */
-  /* alegreya-sans-sc-300 - latin */
   @font-face {
     font-family: 'Alegreya Sans SC';
     font-style: normal;
