@@ -62,7 +62,7 @@ const ViewPagerContainer = styled.div`
           object-fit: cover;
           object-position: center;
           width: 100%;
-          height: 91%;
+          /* height: 91%; */
           top: 0;
           left: 0;
         }
@@ -106,9 +106,15 @@ export default function Viewpager(propsFrom) {
     setPages(pages)
   }
 
-  const [ passedType, setPassedType ] = useState(propsFrom.slideType)
-  const [ passedImages, setPassedImages ] = useState(propsFrom.slideImages)
+  const [ passedType ] = useState(propsFrom.slideType)
+  const [ passedImages  ] = useState(propsFrom.slideImages)
   const [ pages, setPages ] = useState([])
+  const [ posterHolder, setPosterHolder ] = useState(true)
+
+  const posterRemove = () => {
+    console.log('clicked')
+    setPosterHolder(false)
+  }
 
   useEffect(() => {
 
@@ -143,7 +149,7 @@ export default function Viewpager(propsFrom) {
         </Link>  : null }
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: pages[i][2] !== "VIDEO" ? `url(${pages[i][1]})` : "unset" }}>
-          {pages[i][2] === "VIDEO" ?<React.Fragment><img id="insta" src={poster} alt="Instagram" /><VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} preload="metadata"/></React.Fragment>: ""}
+          {pages[i][2] === "VIDEO" ? <React.Fragment>{ posterHolder ? <img id="insta" src={poster} alt="Instagram" /> : ""}<VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} onClick={posterRemove} preload="metadata"/></React.Fragment>: ""}
         </ animated.div>
 
         {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" href={passedType === "instagram" ? `${pages[i][3]}` : ""}>
