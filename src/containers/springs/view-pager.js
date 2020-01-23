@@ -4,6 +4,7 @@ import clamp from 'lodash-es/clamp'
 import { useSprings, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
 import styled from 'styled-components'
+const poster = require('../../images/icons/instagram_video_poster.jpg')
 var ids = require('short-id')
 
 
@@ -49,6 +50,22 @@ const ViewPagerContainer = styled.div`
         padding-top: 64%;
         will-change: transform;
         /* box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6); */
+        #insta {
+          display: none;
+        }
+      @media( min-width: 650px ) {
+        #insta {
+          animation: unset;
+          border-radius: 10px;
+          position: absolute;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          height: 91%;
+          top: 0;
+          left: 0;
+        }
+      }
        
     }
 `
@@ -127,7 +144,7 @@ export default function Viewpager(propsFrom) {
         </Link>  : null }
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: pages[i][2] !== "VIDEO" ? `url(${pages[i][1]})` : "unset" }}>
-          {pages[i][2] === "VIDEO" ? <VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} preload="metadata"/> : ""}
+          {pages[i][2] === "VIDEO" ?<React.Fragment><img id="insta" src={poster} alt="Instagram" /><VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} preload="metadata"/></React.Fragment>: ""}
         </ animated.div>
 
         {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" href={passedType === "instagram" ? `${pages[i][3]}` : ""}>
