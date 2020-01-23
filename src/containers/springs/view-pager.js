@@ -62,7 +62,7 @@ const ViewPagerContainer = styled.div`
           object-fit: cover;
           object-position: center;
           width: 100%;
-          /* height: 91%; */
+          height: 90.5%;
           top: 0;
           left: 0;
         }
