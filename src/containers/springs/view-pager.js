@@ -53,8 +53,9 @@ const ViewPagerContainer = styled.div`
         #insta {
           display: none;
         }
-      @media( min-width: 650px ) {
+      @media( max-width: 650px ) {
         #insta {
+          display: block;
           animation: unset;
           border-radius: 10px;
           position: absolute;
@@ -102,7 +103,6 @@ export default function Viewpager(propsFrom) {
         images[each].permalink
       ])
     })
-    console.log('this is Instagram pages: ', pages)
     setPages(pages)
   }
 
@@ -111,10 +111,9 @@ export default function Viewpager(propsFrom) {
   const [ pages, setPages ] = useState([])
 
   useEffect(() => {
-    console.log('Slide Type: ', passedType)
 
     if (passedType === "contentful") {
-      if (passedImages && passedType === "contentful") {processContentfulImages(passedImages); console.log('this contentful')}
+      if (passedImages && passedType === "contentful") {processContentfulImages(passedImages)}
     } if ( passedType === "instagram" ) {
       if (passedImages) {
         processInstagramImages(passedImages.data.data)
