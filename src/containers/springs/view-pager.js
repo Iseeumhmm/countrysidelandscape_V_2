@@ -46,26 +46,10 @@ const ViewPagerContainer = styled.div`
         background-repeat: no-repeat;
         background-position: center center;
         width: 100%;
-        /* height: 24rem; */
         padding-top: 64%;
         will-change: transform;
         /* box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6); */
-        #insta {
-          display: none;
-        }
-      @media( max-width: 650px ) {
-        #insta {
-          display: block;
-          animation: unset;
-          border-radius: 10px;
-          position: absolute;
-          object-fit: cover;
-          object-position: center;
-          width: 100%;
-          height: 90.5%;
-          top: 0;
-          left: 0;
-        }
+      
       }
        
     }
@@ -109,12 +93,7 @@ export default function Viewpager(propsFrom) {
   const [ passedType ] = useState(propsFrom.slideType)
   const [ passedImages  ] = useState(propsFrom.slideImages)
   const [ pages, setPages ] = useState([])
-  const [ posterHolder, setPosterHolder ] = useState(true)
 
-  const posterRemove = () => {
-    console.log('clicked')
-    setPosterHolder(false)
-  }
 
   useEffect(() => {
 
@@ -149,7 +128,7 @@ export default function Viewpager(propsFrom) {
         </Link>  : null }
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: pages[i][2] !== "VIDEO" ? `url(${pages[i][1]})` : "unset" }}>
-          {pages[i][2] === "VIDEO" ? <React.Fragment>{ posterHolder ? <img id="insta" src={poster} alt="Instagram" /> : ""}<VideoContainer controls width="250" type="video/mp4" src={pages[i][1]} onClick={posterRemove} preload="metadata"/></React.Fragment>: ""}
+          {pages[i][2] === "VIDEO" ? <React.Fragment><VideoContainer controls width="250" type="video/mp4" poster={poster} src={pages[i][1]} preload="metadata"/></React.Fragment>: ""}
         </ animated.div>
 
         {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" href={passedType === "instagram" ? `${pages[i][3]}` : ""}>
