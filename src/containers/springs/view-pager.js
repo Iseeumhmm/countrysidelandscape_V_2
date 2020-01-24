@@ -111,7 +111,7 @@ export default function Viewpager(propsFrom) {
 
   const [props, set] = useSprings(pages.length, i => ({ x: i * divWidth, sc: 1, display: 'block' }))
   const bind = useGesture(({ down, delta: [xDelta], direction: [xDir], distance, cancel }) => {
-    if (down && distance > divWidth / 2)
+    if (down && distance > divWidth / 4)
       cancel((index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, pages.length - 1)))
     set(i => {
       if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
@@ -131,7 +131,7 @@ export default function Viewpager(propsFrom) {
           {pages[i][2] === "VIDEO" ? <React.Fragment><VideoContainer controls width="250" type="video/mp4" poster={poster} src={pages[i][1]} preload="metadata"/></React.Fragment>: ""}
         </ animated.div>
 
-        {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" href={passedType === "instagram" ? `${pages[i][3]}` : ""}>
+        {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" rel="noopener noreferrer" href={`${pages[i][3]}`}>
         <p>{pages[i][0].substring(0, 100)}{ pages[i][0].length > 100 ? "... <View Post>" : "" }</p>
         </a>  : null }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react'
+import { Head } from 'react-static'
 import { Link } from 'components/Router'
 import styled, { keyframes } from 'styled-components'
 import { useRouteData } from 'react-static'
@@ -49,12 +50,13 @@ const Logo = styled.div`
         min-height: 12rem;
     }
     @media( min-width: 950px ) {
-        top: 34vw;
+        top: 40vw;
         width: 27vw;
         min-height: 10vw;
     }
     @media( min-width: 1575px ) {
-        top: 34vw;
+        top: 0;
+        left: 50%;
         width: 25rem;
         min-height: 9rem;
     }
@@ -76,9 +78,9 @@ const TextContainer = styled.div`
         text-align: left;
         color: white;
      }
-     h2 {
+     /* h2 {
          padding-top: 4rem;
-     }
+     } */
      p { padding-bottom: 4rem; }
      img { 
          width: 5rem;
@@ -89,40 +91,95 @@ const TextContainer = styled.div`
         text-align: left;
     }
     font-size: 1.25rem;
-    &:first-of-type { padding-top: 68vw; }
+    &#one { 
+        padding-top: 76vw; 
+        margin-bottom: 6rem; 
+    }
+    @media( min-width: 675px ) {
+        &#one { padding-top: 62vw; }
+        width: 48rem;
+    }
     @media( min-width: 875px ) {
         h1 { text-align: left }
         width: 60rem;
     }
     @media( min-width: 950px ) {
-        &:first-of-type {
+        &#one {
             padding-top: 48vw;
         }
-        width: 68%;
+        width: 65%;
     }
-    @media( min-width: 1575px ) {
-        &:first-of-type {
-            padding-top: 47vw;
+    @media( min-width: 1081px ) {
+        h1 { text-align: center; }
+        margin-top: 0;
+        width: 95%;
+        &#one { 
+            padding-top: 0;
+            grid-column: 1/6; 
+            grid-row: 1;
+        }
+        &#two { 
+            grid-column: 4/6;
+            grid-row: 2/4;
+            /* margin: auto 0; */
+            /* margin-top: 1rem; */
+            p { padding-bottom: 0; }
+        }
+        &#three { 
+            grid-column: 1/3;
+            grid-row: 4/6;
+        }
+        &#four { 
+            grid-column: 1/4;
+            grid-row: 2/4;
+        }
+        &#five { 
+            /* margin: auto 0; */
+            grid-column: 3/6;
+            grid-row: 4/6;
+        }
+        &#six { 
+            grid-column: 1/6;
+            grid-row: 7;
+        }
+        &#seven { 
+            grid-column: 1/6;
+            grid-row: 8;
+        }
+    }
+    /* @media( min-width: 1575px ) {
+        &#one {
+            padding-top: 36vw;
         }
         width: 69%;
-    }
+    } */
 `
 
 const ContentContainer = styled.div`
     background-color: "#264A65";
     width: 95%;
     margin: auto;
-    top: 4rem;
+    /* top: 4rem; */
     padding-bottom: 8rem;
     @media( min-width: 675px ) {
         position: relative;
-        left: 1px;
-        width: 85vw;
+        width: 90vw;
         box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.75);
     }
-    @media( min-width: 1575px ) {
-        /* width: 55vw; */
-}
+    @media( min-width: 950px ) {
+        top: 9.7vw;
+        width: 80.1vw;
+    }
+    @media( min-width: 1081px ) {
+        .grid {
+            padding: 0 2rem;
+            padding-top: 34vw;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+        }
+       
+    }
 `
 const ViewStackContainer = styled.div`
     position: relative;
@@ -132,13 +189,16 @@ const ViewStackContainer = styled.div`
     overflow: hidden;
     border-radius: 7px;
     @media( min-width: 675px ){
-        height: 78vw;
+        height: 48rem;
     }
-    @media( min-width: 950px ){
-        height: 60rem;
+    /* @media( min-width: 950px ){
+        height: 50rem;
+    } */
+    @media( min-width: 1081px ){
+        height: 52rem;
     }
     @media( min-width: 1300px ) {
-        height: ${({instagram}) => instagram ? "70rem" : "60rem"};
+        height: ${({instagram}) => instagram ? "35rem" : "33rem"};
     }
 `
 
@@ -165,37 +225,42 @@ export default function Pools() {
     }, [])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
+            <Head>
+                {/* <link rel="preload" as="image" href={background} imagesrcset={`${background} 1200w, ${backgroundLarge}, 2300w`} imagesizes="100vw" /> */}
+            </Head>
             <BackgroundContainer >
                 <NavBar style={{zIndex: "1000"}}/>
+                <Link to="/"><Logo/></Link>
                 <ContentContainer>
-                    <Link to="/"><Logo/></Link>
-                    <TextContainer>
+                    <div className="grid">
+                    <TextContainer id="one">
                         <h1>Your London Pool Builder</h1>
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features in and around London Ontario. We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.
                         </p>
                         <a href={catalogue} download>Download Pool Catalogue</a>
-                        <h2>We bring your vision to life with our expertise.</h2>  
-                        <p>Countryside Landscape is a one-stop shop for custom landscapes. Our objective is to create unique spaces that are tailored to your site specific challenges. Whether your project scope is a small pocket garden in a downtown location or a sprawling country estate, we are committed to excellence in every stage of our project.</p>
+                    </TextContainer>
+                    <TextContainer id="two">
                         <ViewStackContainer id="view-pager-container">
-                            <h2>View our past projects</h2>
+                            {/* <h2>View our past projects</h2> */}
                             { divWidth ? <ViewStack width={divWidth} slideType="contentful" slideImages={contentfulImages}/> : ""}
                         </ViewStackContainer>
                         <img src={swipe} alt="swipe gesture"></img>
                     </TextContainer>
-                    <TextContainer>
+                    <TextContainer id="three">
                         <ViewStackContainer instagram id="view-pager-container-2">
-                            <h2>Swipe through our Instagram Feed!</h2>
+                            <p style={{padding: "0"}}>Swipe through our Instagram Feed!</p>
                             { divWidth ? instagramFeed ? <ViewStack width={divWidth} slideType="instagram" slideImages={instagramFeed}/> : <h2>Loading...</h2> : ""}
                         </ViewStackContainer>
                     </TextContainer>
-                    <TextContainer>
-                        <h1>Pools &amp; Landscaping</h1>
-                        <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features throughout southern Ontario.
-                        We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.</p>
-
-                        <h1>Our Services</h1>
+                    <TextContainer id="four">
+                        <h2>We bring your vision to life with our expertise.</h2>  
+                        <p>Countryside Landscape is a one-stop shop for custom landscapes. Our objective is to create unique spaces that are tailored to your site specific challenges. Whether your project scope is a small pocket garden in a downtown location or a sprawling country estate, we are committed to excellence in every stage of our project.</p>
+                    </TextContainer>
+                    <TextContainer id="five">
+                        <h2>Our Services</h2>
                         <p>We are a mid-sized landscape company located in Aylmer, Ontario which is central to and services the towns, cities and surrounding country communities of Tillsonburg, St. Thomas, London and Ingersoll.</p>
-
+                    </TextContainer>
+                    <TextContainer id="six">
                         <h2>We offer a variety of quality services for your home and commercial properties.</h2>
 
                         <p><b>Among our services are:</b></p>
@@ -208,10 +273,11 @@ export default function Pools() {
 
                         <li>Commercial and residential snow plowing and salting in Aylmer and surrounding communities.</li>
                         </ul>
-                        <h2 style={{textAlign: 'center'}}>We conform to WSIB standards and are Commercial Liability insured.</h2>
-
-
                     </TextContainer>
+                    <TextContainer id="seven">
+                        <h2 style={{textAlign: 'center'}}>We conform to WSIB standards and are Commercial Liability insured.</h2>
+                    </TextContainer>
+                    </div>
                 </ContentContainer>
             </BackgroundContainer>
         </ PageContainer>
