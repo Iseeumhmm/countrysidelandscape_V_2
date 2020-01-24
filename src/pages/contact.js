@@ -5,6 +5,8 @@ import '../artibot.css'
 import NavBar from '../containers/navigation/navbar'
 const logo = require('../images/logos/LargeLogoBlack.png')
 const Background = require('../images/backgrounds/contact.jpg')
+const BackgroundLarge = require('../images/backgrounds/contactLarge.jpg')
+
 
 // Styles
 
@@ -23,6 +25,10 @@ const BackgroundContainer = styled.div`
     height: 100vh;
     background-image: url(${Background});
     background-size: cover;
+    @media(min-width: 1150px) {
+      background-image: url(${BackgroundLarge});
+
+    }
 `
 const TextContainer = styled.div`
   position: absolute;  
@@ -95,7 +101,7 @@ const FooterTextContainer = styled.div`
   position: absolute;
   left: 2.5rem;
   width: 23rem;
-  bottom: 0.75rem;
+  bottom: 4.75rem;
   @media(min-width: 635px){
     left: 50%;
     transform: translateX(-50%);

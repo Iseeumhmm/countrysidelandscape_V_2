@@ -93,6 +93,7 @@ const TextContainer = styled.div`
         text-align: left;
     }
     font-size: 1.25rem;
+    
     &#one { 
         padding-top: 76vw; 
         margin-bottom: 6rem; 
@@ -174,7 +175,18 @@ const ContentContainer = styled.div`
     width: 95%;
     margin: auto;
     /* top: 4rem; */
-    padding-bottom: 8rem;
+    /* padding-bottom: 8rem; */
+    .contact {
+        width: 100%;
+        height: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a { 
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+    }
     @media( min-width: 675px ) {
         position: relative;
         width: 90vw;
@@ -280,7 +292,7 @@ export default function Pools() {
                     <TextContainer id="six">
                         <h2>We offer a variety of quality services for your home and commercial properties.</h2>
 
-                        <p><b>Among our services are:</b></p>
+                        <p style={{paddingBottom: "0"}}><b>Among our services are:</b></p>
                         <ul>
                         <li>Skid steer and mini excavating services, such as:  excavations, prep work, demolitions and clean-ups, excavate hydro ,water trenches, and excavate pools, and excavate and install driveway and parking lots.</li>
 
@@ -294,6 +306,9 @@ export default function Pools() {
                     <TextContainer id="seven">
                         <h2 style={{textAlign: 'center'}}>We conform to WSIB standards and are Commercial Liability insured.</h2>
                     </TextContainer>
+                    </div>
+                    <div className="contact">
+                        <Link to="/contact">Get in touch with us!</Link>
                     </div>
                 </ContentContainer>
             </BackgroundContainer>

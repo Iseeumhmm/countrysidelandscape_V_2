@@ -26,7 +26,7 @@ export default function BannerNav(props) {
    
     return (
         <NavList secondary={props.secondary}>
-            <li><Link to="/about">ABOUT US</Link></li>
+            <li><Link to="/about">OUR STORY</Link></li>
             <li style={{
                 fontSize: "2rem", 
                 marginTop: "-.1rem", 

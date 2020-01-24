@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
 const background = require('../images/backgrounds/about.jpg')
-const logo = require('../images/logos/LargeLogo.png')
+const backgroundLarge = require('../images/backgrounds/aboutLarge.jpg')
+const logo = require('../images/logos/LargeLogoBlack.png')
 const john = require('../images/Headshots/John.png')
 const vince = require('../images/Headshots/Vince.png')
 
@@ -14,24 +15,31 @@ const PageContainer = styled.div`
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
-  background-color: #433A31;
-  color: white;
+  background-color: #D3DBEE;
+  color: #151D51;
   max-width: 100%;
   overflow-x: hidden;
-  & > div:nth-child(2) > h1 {
-    padding: calc(64vw * 1.25) 0 0;
-  }
-   @media(min-width: 735px) {
-     & > div:nth-child(2) > h1 {
-      text-shadow: 2px 2px 1px  rgba(0,0,0, 0.5);
-      padding: 18rem 0 4rem;
-  }
-  }
-  @media(min-width: 992px) {
-    background-size: cover;
+  .headline { padding: 110vw 0 0; }
+  @media(min-width: 1081px) {
+    background-image: url(${backgroundLarge});
+    .headline { 
+      padding: 34vw 0 9rem; 
+      color: #D3DBEE;
+      font-size: 5.2rem;
+    }
+    .shadow {
+      position: absolute;
+      width: 79.4%;
+      left: 50%;
+      top: 10.05vw;
+      transform: translateX(calc(-50%));
+      height: 95%;
+      box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.75);
+    }
   }
 `
 const HeaderContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 9rem;
   display: flex;
@@ -39,7 +47,6 @@ const HeaderContainer = styled.div`
   justify-content: center;
   @media(min-width: 735px){
     justify-content: flex-start;
-    margin-left: 2rem;
   }
 `
 const Logo = styled.div`
@@ -48,13 +55,18 @@ const Logo = styled.div`
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;
+  @media(min-width: 1081px) {
+    position:absolute;
+    top: 1rem;
+    left: 49%;
+    transform: translateX(-50%);
+  }
 `
 const TextContainer = styled.div`
   width: 95%;
   margin: auto;
-  padding: 4rem 0 0;
   h1 {
-    color: white;
+    color: #151D51;
     text-align: center;
     padding: 2rem 0 2rem; 
   }
@@ -95,12 +107,12 @@ export default function About() {
   return (
     <PageContainer>
       <HeaderContainer>
-      <NavBar style={{zIndex: "1000"}}/>
-
+      <NavBar black style={{zIndex: "1000"}}/>
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
+      <div className="shadow"></div>
       <TextContainer>
-      <h1 style={{margin: "0", fontSize: "4rem", textAlign: "center"}}>Our Story</h1>
+      <h1 className="headline" style={{textAlign: "center"}}>Our Story</h1>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={john}/>
           <h2>John Wall</h2>
