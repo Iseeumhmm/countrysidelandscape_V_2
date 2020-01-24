@@ -54,7 +54,7 @@ const Logo = styled.div`
         width: 27vw;
         min-height: 10vw;
     }
-    @media( min-width: 1575px ) {
+    @media( min-width: 1081px ) {
         top: 0;
         left: 50%;
         width: 25rem;
@@ -67,6 +67,8 @@ const swipeGesture = keyframes`
 100%    { transform: translateX(50px) }
 `
 const TextContainer = styled.div`
+    padding: 10px;
+    border-radius: 2rem;
     width: 95%;
     /* height: ${(instagram) => instagram ? "52rem" : "auto"}; */
     margin: auto;
@@ -110,6 +112,8 @@ const TextContainer = styled.div`
         width: 65%;
     }
     @media( min-width: 1081px ) {
+        height: 20rem;
+        background-color: rgba(0,0,0,.05);
         h1 { text-align: center; }
         margin-top: 0;
         width: 95%;
@@ -117,34 +121,44 @@ const TextContainer = styled.div`
             padding-top: 0;
             grid-column: 1/6; 
             grid-row: 1;
+            background-color: unset;
         }
         &#two { 
+            height: 42.5rem;
             grid-column: 4/6;
             grid-row: 2/4;
-            /* margin: auto 0; */
-            /* margin-top: 1rem; */
             p { padding-bottom: 0; }
+            img { 
+                bottom: 5rem;
+                position: relative; 
+            }
         }
         &#three { 
+            height: 40rem;
             grid-column: 1/3;
             grid-row: 4/6;
         }
         &#four { 
             grid-column: 1/4;
-            grid-row: 2/4;
+            grid-row: 2;
         }
         &#five { 
             /* margin: auto 0; */
-            grid-column: 3/6;
-            grid-row: 4/6;
+            grid-column: 1/4;
+            grid-row: 3;
         }
         &#six { 
-            grid-column: 1/6;
-            grid-row: 7;
+            height: 40rem;
+            grid-column: 3/6;
+            grid-row: 4/6;
         }
         &#seven { 
             grid-column: 1/6;
             grid-row: 8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 75.5vw;
         }
     }
     /* @media( min-width: 1575px ) {
@@ -177,6 +191,7 @@ const ContentContainer = styled.div`
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             grid-gap: 10px;
+            /* grid-auto-rows: 20rem 40rem; */
         }
        
     }
@@ -194,11 +209,13 @@ const ViewStackContainer = styled.div`
     /* @media( min-width: 950px ){
         height: 50rem;
     } */
+
     @media( min-width: 1081px ){
-        height: 52rem;
+        height: 38rem;
     }
+    
     @media( min-width: 1300px ) {
-        height: ${({instagram}) => instagram ? "35rem" : "33rem"};
+        height: ${({instagram}) => instagram ? "35rem" : "40rem"};
     }
 `
 

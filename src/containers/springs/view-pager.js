@@ -14,8 +14,6 @@ const ViewPagerContainer = styled.div`
     position: relative;
     height: 30rem;
     overflow: hidden;
-    /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, 
-    auto; */
     @media(min-width: 418px) {
       height: 72vw;
     }
@@ -27,10 +25,8 @@ const ViewPagerContainer = styled.div`
         width: 100%;
         height: 100%;
         will-change: transform;
-        h1 { 
+        h2 { 
           text-decoration: underline;
-          z-index: 2;
-          top: 0;
         }
         &  > a > p {
           position: relative; 
@@ -124,7 +120,7 @@ export default function Viewpager(propsFrom) {
       <animated.div {...bind()} key={ids.generate()} style={{ display, transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}>
 
         {passedType === "contentful" ? <Link key={`${i}_link`} to={passedType === "contentful" ? `/${pages[i][0]}` : "/pool-installs"}>
-          <h1 style={{textAlign: "center"}}>{pages[i][0]}</h1>
+          <h2 style={{textAlign: "center", textTransform: "capitalize"}}>{pages[i][0]}</h2>
         </Link>  : null }
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: pages[i][2] !== "VIDEO" ? `url(${pages[i][1]})` : "unset" }}>
@@ -132,7 +128,7 @@ export default function Viewpager(propsFrom) {
         </ animated.div>
 
         {passedType === "instagram" ? <a key={`${i}_link`} target="_blank" rel="noopener noreferrer" href={`${pages[i][3]}`}>
-        <p>{pages[i][0].substring(0, 100)}{ pages[i][0].length > 100 ? "... <View Post>" : "" }</p>
+        <p>{pages[i][0].substring(0, 100)}{ pages[i][0].length > 100 ? <span style={{textTransform: 'underline'}}> ...Read More</span> : "" }</p>
         </a>  : null }
 
       </animated.div>
