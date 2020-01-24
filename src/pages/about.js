@@ -23,9 +23,17 @@ const PageContainer = styled.div`
   @media(min-width: 1081px) {
     background-image: url(${backgroundLarge});
     .headline { 
-      padding: 34vw 0 9rem; 
-      color: #D3DBEE;
-      font-size: 5.2rem;
+      padding: 30vw 0 9rem; 
+      display: flex;
+      justify-content: center;
+      h1 { 
+        width: 30rem;
+        font-size: 5.2rem; 
+        border-radius: 10px;
+        background-color: #151D51;
+        color: #D3DBEE;
+
+        }
     }
     .shadow {
       position: absolute;
@@ -112,7 +120,9 @@ export default function About() {
       </HeaderContainer>
       <div className="shadow"></div>
       <TextContainer>
-      <h1 className="headline" style={{textAlign: "center"}}>Our Story</h1>
+      <div className="headline">
+        <h1 style={{textAlign: "center"}}>Our Story</h1>
+      </div>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={john}/>
           <h2>John Wall</h2>
