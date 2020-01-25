@@ -243,14 +243,17 @@ export default function Pools() {
         getWidth(element)
         window.addEventListener( 'resize', getWidth(element) );
         
-        return () => window.removeEventListener('resize', getWidth )
+        return () => {
+            console.log('removed')
+            window.removeEventListener('resize', getWidth(element) )
+        }
     }, [divWidth])
     useEffect(() => {
-        instagram().then( (result) => {
-            setInstagramFeed(result)
-        }, (error) => {
-            console.log("There was an error retrieveing the instagram feed: ", error)
-        } )
+        let waitingForInstagram = true
+        instagram()
+            .then( result => (waitingForInstagram ? setInstagramFeed(result) : null))
+            .catch( error => (waitingForInstagram ? console.log("There was an error retrieveing the instagram feed: ", error) : null))
+        return () => (waitingForInstagram = false)
     }, [])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>

@@ -59,7 +59,9 @@ function Home() {
       }
     },
   };
-
+  const handleHeight = (ele) => {
+    setViewHeight(ele)
+  }
   useEffect( () => {
 
     let toPreload = []
@@ -76,10 +78,8 @@ function Home() {
             head.appendChild(link);
         })
 
-    setViewHeight(window.innerHeight)
-    window.addEventListener('resize', () => {
-      setViewHeight(window.innerHeight)
-    });
+    handleHeight(window.innerHeight)
+    window.addEventListener('resize', handleHeight(window.innerHeight));
     setBrowser( 
       <BrowserDetection>
         { browserHandler }
@@ -89,10 +89,8 @@ function Home() {
         setLoading(false)
     },1500)
 
-    return () => window.removeEventListener('resize', () => {
-      setViewHeight(window.innerHeight)
-    })
-  }, [setViewHeight])
+    return () => window.removeEventListener('resize', handleHeight(window.innerHeight))
+  }, [])
 
   const page = (
     <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>

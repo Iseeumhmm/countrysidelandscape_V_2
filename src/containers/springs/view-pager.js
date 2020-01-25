@@ -92,14 +92,17 @@ export default function Viewpager(propsFrom) {
 
 
   useEffect(() => {
-
-    if (passedType === "contentful") {
-      if (passedImages && passedType === "contentful") {processContentfulImages(passedImages)}
-    } if ( passedType === "instagram" ) {
-      if (passedImages) {
-        processInstagramImages(passedImages.data.data)
+    let waitingForContent = true
+    if (waitingForContent) {
+      if (passedType === "contentful") {
+        if (passedImages && passedType === "contentful") {processContentfulImages(passedImages)}
+      } if ( passedType === "instagram" ) {
+        if (passedImages) {
+          processInstagramImages(passedImages.data.data)
+        }
       }
     }
+    return () => (waitingForContent = false)
   }, [])
 
   const divWidth = propsFrom.width + 5;
