@@ -59,13 +59,15 @@ const HeaderContainer = styled.div`
 `
 const Logo = styled.div`
   width: 23rem;
-  min-height: 8rem;
+  min-height: 11rem;
+  margin-top: 3rem;
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;
   @media(min-width: 1081px) {
+    margin-top: 1rem;
     position:absolute;
-    top: 1rem;
+    top: 0;
     left: 49%;
     transform: translateX(-50%);
   }

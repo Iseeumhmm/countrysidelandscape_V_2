@@ -37,7 +37,7 @@ const Logo = styled.div`
     left: calc(50% - 1rem);
     transform: translateX(-50%);
     width: 23rem;
-    min-height: 8rem;
+    min-height: 11rem;
     background-image: url(${logo});
     background-size: cover;
     background-position: center center;

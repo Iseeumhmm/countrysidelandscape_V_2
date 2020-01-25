@@ -30,7 +30,7 @@ const Logo = styled.div`
     margin: 0 auto 1rem;
     right: 1rem;
     width: 23rem;
-    min-height: 8rem;
+    min-height: 9rem;
     background-image: url(${logo});
     background-size: cover;
     background-position: center center;
