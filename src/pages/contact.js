@@ -127,6 +127,8 @@ export default function Contact() {
     useEffect( () => {
       handleResize(window.innerHeight)
       window.addEventListener('resize', handleResize(window.innerHeight));
+      window.addEventListener("orientationchange", handleResize(window.innerHeight))
+
       const script = document.createElement("script");
       script.type = "text/javascript"
       script.async = true
@@ -135,8 +137,11 @@ export default function Contact() {
       script.innerHTML = "!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement('script');i.async=!0,i.type='text/javascript',i.src='https://app.artibot.ai/loader.js',e.getElementsByTagName('head').item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&'loaded'!=this.readyState&&'complete'!=this.readyState)){new window.ArtiBot({i:'31743cbc-72f3-4c39-91de-9447c14185d7'});a=!0}}}(window,document);"
       document.body.appendChild(script)
 
-      return () => window.removeEventListener('resize', handleResize(window.innerHeight))
-      }, [])
+      return () => {
+        window.removeEventListener('resize', handleResize(window.innerHeight))
+        window.addEventListener("orientationchange", handleResize(window.innerHeight))
+      }
+    }, [])
     return (
         <PageContainer vh={viewHeight}>
           <NavBar black style={{zIndex: "1000"}}/>

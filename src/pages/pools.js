@@ -242,8 +242,11 @@ export default function Pools() {
         let element = document.getElementById("view-pager-container").offsetWidth
         getWidth(element)
         window.addEventListener( 'resize', getWidth(element) );
-        
-        return () => window.removeEventListener('resize', getWidth(element))
+        window.addEventListener("orientationchange", getWidth(element))
+        return () => {
+            window.removeEventListener('resize', getWidth(element))
+            window.addEventListener("orientationchange", getWidth(element))
+        }
     }, [divWidth])
     useEffect(() => {
         let waitingForInstagram = true

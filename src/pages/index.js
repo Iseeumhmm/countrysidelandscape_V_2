@@ -80,6 +80,8 @@ function Home() {
 
     handleHeight(window.innerHeight)
     window.addEventListener('resize', handleHeight(window.innerHeight));
+    window.addEventListener("orientationchange", handleHeight(window.innerHeight))
+
     setBrowser( 
       <BrowserDetection>
         { browserHandler }
@@ -89,7 +91,10 @@ function Home() {
         setLoading(false)
     },1500)
 
-    return () => window.removeEventListener('resize', handleHeight(window.innerHeight))
+    return () => {
+      window.removeEventListener('resize', handleHeight(window.innerHeight))
+      window.addEventListener("orientationchange", handleHeight(window.innerHeight))
+    }
   }, [])
 
   const page = (
