@@ -80,7 +80,7 @@ function Home() {
 
     handleHeight(window.innerHeight)
     window.addEventListener('resize', handleHeight(window.innerHeight));
-    window.addEventListener("orientationchange", handleHeight(window.innerHeight))
+    window.onorientationchange = () => handleHeight(null)
 
     setBrowser( 
       <BrowserDetection>
@@ -93,7 +93,7 @@ function Home() {
 
     return () => {
       window.removeEventListener('resize', handleHeight(window.innerHeight))
-      window.addEventListener("orientationchange", handleHeight(window.innerHeight))
+      window.onorientationchange = null
     }
   }, [])
 

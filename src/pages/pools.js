@@ -242,10 +242,10 @@ export default function Pools() {
         let element = document.getElementById("view-pager-container").offsetWidth
         getWidth(element)
         window.addEventListener( 'resize', getWidth(element) );
-        window.addEventListener("orientationchange", getWidth(element))
+        window.onorientationchange =  () => getWidth(null)
         return () => {
             window.removeEventListener('resize', getWidth(element))
-            window.addEventListener("orientationchange", getWidth(element))
+            window.onorientationchange =  null
         }
     }, [divWidth])
     useEffect(() => {

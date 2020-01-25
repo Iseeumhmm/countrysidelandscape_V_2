@@ -120,15 +120,14 @@ const FooterTextContainer = styled.div`
 
 
 export default function Contact() {
-    const [viewHeight, setViewHeight] = useState(0)
+    const [viewHeight, setViewHeight] = useState(null)
     const handleResize = (ele) => {
       setViewHeight(ele)
     }
     useEffect( () => {
       handleResize(window.innerHeight)
       window.addEventListener('resize', handleResize(window.innerHeight));
-      // window.addEventListener("orientationchange", handleResize(window.innerHeight))
-
+      window.onorientationchange =  () => setViewHeight(null)
       const script = document.createElement("script");
       script.type = "text/javascript"
       script.async = true
@@ -139,9 +138,9 @@ export default function Contact() {
 
       return () => {
         window.removeEventListener('resize', handleResize(window.innerHeight))
-        // window.addEventListener("orientationchange", handleResize(window.innerHeight))
+        window.onorientationchange = null
       }
-    }, [])
+    }, [setViewHeight])
     return (
         <PageContainer vh={viewHeight}>
           <NavBar black style={{zIndex: "1000"}}/>
