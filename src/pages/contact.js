@@ -127,7 +127,7 @@ export default function Contact() {
     useEffect( () => {
       handleResize(window.innerHeight)
       window.addEventListener('resize', handleResize(window.innerHeight));
-      window.addEventListener("orientationchange", handleResize(window.innerHeight))
+      // window.addEventListener("orientationchange", handleResize(window.innerHeight))
 
       const script = document.createElement("script");
       script.type = "text/javascript"
@@ -139,7 +139,7 @@ export default function Contact() {
 
       return () => {
         window.removeEventListener('resize', handleResize(window.innerHeight))
-        window.addEventListener("orientationchange", handleResize(window.innerHeight))
+        // window.addEventListener("orientationchange", handleResize(window.innerHeight))
       }
     }, [])
     return (
