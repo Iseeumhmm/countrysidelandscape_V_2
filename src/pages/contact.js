@@ -101,12 +101,13 @@ const FooterTextContainer = styled.div`
   position: absolute;
   left: 2.5rem;
   width: 23rem;
-  bottom: 4.75rem;
+  bottom: 1rem;
   @media(min-width: 635px){
     left: 50%;
     transform: translateX(-50%);
   }
   @media(min-width: 1575px){
+    bottom: 4.75rem;
    h2 { margin: 0 }
   }
 `
