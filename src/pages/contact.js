@@ -86,6 +86,9 @@ const Address = styled.div`
   width: 100%; 
   text-align: center; 
   h2 { margin-bottom: 0; }
+  @media(max-height: 550px ) {
+    display: none;
+  }
   @media(min-width: 1575px){
     margin-top: 0;
     margin-bottom: 2rem;
@@ -102,6 +105,9 @@ const FooterTextContainer = styled.div`
   left: 2.5rem;
   width: 23rem;
   bottom: 1rem;
+  @media(max-height: 550px ) {
+    display: none;
+  }
   @media(min-width: 635px){
     left: 50%;
     transform: translateX(-50%);
@@ -111,6 +117,10 @@ const FooterTextContainer = styled.div`
    h2 { margin: 0 }
   }
 `
+const handleResize = () => {
+  
+}
+
 export default function Contact() {
     const [viewHeight, setViewHeight] = useState(0)
 
