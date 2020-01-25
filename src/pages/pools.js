@@ -46,19 +46,19 @@ const Logo = styled.div`
         top: 44vw;
     }
     @media( min-width: 771px ) {
-        width: 33rem;
+        width: 24rem;
         min-height: 12rem;
     }
     @media( min-width: 950px ) {
-        top: 40vw;
-        width: 27vw;
+        top: 45vw;
+        width: 20vw;
         min-height: 10vw;
     }
     @media( min-width: 1081px ) {
         top: 0;
         left: 50%;
-        width: 25rem;
-        min-height: 9rem;
+        width: 21rem;
+        min-height: 11rem;
     }
 `
 const swipeGesture = keyframes`

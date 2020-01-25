@@ -29,7 +29,7 @@ const Logo = styled.div`
     position: relative;
     margin: 0 auto 1rem;
     right: 1rem;
-    width: 23rem;
+    width: 25rem;
     min-height: 9rem;
     background-image: url(${logo});
     background-size: cover;
