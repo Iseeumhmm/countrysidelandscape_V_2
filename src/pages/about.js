@@ -31,6 +31,7 @@ const PageContainer = styled.div`
         width: 30rem;
         font-size: 5.2rem; 
         border-radius: 10px; 
+        color: ${ ({theme: {lightGrey}}) => lightGrey };
         background-color: rgba(19, 114, 176, .5);
         }
     }
@@ -75,7 +76,7 @@ const TextContainer = styled.div`
   width: 95%;
   margin: auto;
   h1 {
-    color: ${ ({theme: {lightGrey}}) => lightGrey };
+    color: ${ ({theme: {darkGrey}}) => darkGrey };
     text-align: center;
     padding: 1.75rem;
   }
