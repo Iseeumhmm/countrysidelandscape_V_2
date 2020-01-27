@@ -42,8 +42,9 @@ const HeaderContainer = styled.div`
 
 const Services = () => {
     const pageImages = useRouteData()
-    
     const [images, setImages] = useState(null)
+    const [loaded, setLoaded] = useState(false)
+
     let imageArray = []
     useEffect(() => {
         if (pageImages[1]) { pageImages[1].forEach( each => {
@@ -56,7 +57,9 @@ const Services = () => {
         })}
         setImages(imageArray)
     }, [])
-    
+    const imageLoaded = () => {
+        setLoaded(true)
+    }
 
     return (
         <PageContainer>
@@ -73,8 +76,8 @@ const Services = () => {
             {images ? images.map((each, i) =>{
                 return (
                     <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
-                        <img src={each.image} alt={each.shortTitle}></img>
-                        <h3>{each.description}</h3>
+                        <img src={each.image} onLoad={ i === 0 ? imageLoaded : null } alt={each.shortTitle}></img>
+                        { loaded ? ( <h3>{each.description}</h3> ) : "" }
                     </Fade>
                 )
             }) : ""}
