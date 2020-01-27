@@ -15,8 +15,10 @@ const PageContainer = styled.div`
     max-width: 100%;
     overflow-x: hidden;
     text-align: center;
+    h1 {color: ${({theme: {darkGrey}}) => darkGrey}; }
     h3 {
         margin-top: -.5rem;
+        color: ${({theme: {darkGrey}}) => darkGrey};
     }
     img {
         border-radius: 10px;
@@ -76,7 +78,7 @@ const Services = () => {
             {images ? images.map((each, i) =>{
                 return (
                     <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
-                        <img src={each.image} onLoad={ i === 0 ? imageLoaded : null } alt={each.shortTitle}></img>
+                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === 0 ? imageLoaded : null } alt={each.shortTitle}></img>
                         { loaded ? ( <h3>{each.description}</h3> ) : "" }
                     </Fade>
                 )

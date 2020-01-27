@@ -32,7 +32,7 @@ const StyledMenu = styled.nav`
     text-transform: uppercase;
     padding: 1.5rem 0;
     letter-spacing: 0.5rem;
-    color: #0D0C1D;
+    color: ${({theme: {darkGrey}}) => darkGrey};
     text-decoration: none;
     transition: color 0.3s linear;
 
@@ -41,9 +41,6 @@ const StyledMenu = styled.nav`
       text-align: center;
     }
 
-    &:hover {
-      /* color: #343078; */
-    }
   }
 `
 
@@ -81,8 +78,7 @@ const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    /* background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'}; */
-    background: ${({ black, open }) => black ? "black" : open ? "black" : "white"};
+    background: ${({ black, open }) => black ? ({theme: {darkGrey}}) => darkGrey : open ? ({theme: {darkGrey}}) => darkGrey : ({theme: {lightGrey}}) => lightGrey};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
