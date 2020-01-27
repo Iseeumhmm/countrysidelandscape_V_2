@@ -180,6 +180,7 @@ const ContentContainer = styled.div`
         width: 100%;
         height: 20rem;
         display: flex;
+        text-align: center;
         align-items: center;
         justify-content: center;
         a { 

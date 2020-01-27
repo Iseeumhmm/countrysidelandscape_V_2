@@ -12,12 +12,16 @@ const BackgroundLarge = require('../images/backgrounds/contactLarge.jpg')
 
 const PageContainer = styled.div`
   position: fixed;
-  overflow: hidden;
   width: 100%;
   height: 100vh;
   height: ${ props => props.vh}px;
-  position: relative;
   text-align: center;
+  @media(max-height: 575px ) {
+    height: 70rem;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 `
 const BackgroundContainer = styled.div`
     position: absolute;
@@ -25,6 +29,10 @@ const BackgroundContainer = styled.div`
     height: 100vh;
     background-image: url(${Background});
     background-size: cover;
+    @media(max-height: 575px ) {
+      height: 70rem;
+      background-repeat: no-repeat;
+  }
     @media(min-width: 1150px) {
       background-image: url(${BackgroundLarge});
 
@@ -86,9 +94,7 @@ const Address = styled.div`
   width: 100%; 
   text-align: center; 
   h2 { margin-bottom: 0; }
-  @media(max-height: 550px ) {
-    display: none;
-  }
+  
   @media(min-width: 1575px){
     margin-top: 0;
     margin-bottom: 2rem;
@@ -105,9 +111,6 @@ const FooterTextContainer = styled.div`
   left: 2.5rem;
   width: 23rem;
   bottom: 1rem;
-  @media(max-height: 550px ) {
-    display: none;
-  }
   @media(min-width: 635px){
     left: 50%;
     transform: translateX(-50%);
