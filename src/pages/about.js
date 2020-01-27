@@ -31,6 +31,7 @@ const PageContainer = styled.div`
         width: 30rem;
         font-size: 5.2rem; 
         border-radius: 10px; 
+        padding: 1.5rem;
         color: ${ ({theme: {lightGrey}}) => lightGrey };
         background-color: rgba(19, 114, 176, .5);
         }
