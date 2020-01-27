@@ -6,14 +6,27 @@ import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 // const backgroundPools = require('./images/backgrounds/poolPage.jpg')
 // const contactBackground = require('./images/backgrounds/contact.jpg')
-const og_image = require('./images/backgrounds/og_imageOpt.jpg')
+// const og_image = require('./images/backgrounds/og_imageOpt.jpg')
 
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
 
 const theme = {
-  secondaryColour: 'purple',
+  // Global
+  fontSize: "1.25rem", 
+  headerPadding: "5.2rem 0 2rem",
+  
+
+  // Colours
+  mainColour: "#1372B0",
+  darkGrey: "#3b4145",
+  lightGrey: "#f9f9fa",
+  highlight: "#8AD30D",
+
+
+  // Pool Page
+  poolPageBackground: "#2C5E7E", 
   lineHeight: "2.6rem"
 }
 
@@ -69,11 +82,11 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: 62.5%;
-    @media(min-width: 534px) {
+    /* @media(min-width: 534px) {
       font-size: 70%;
-    } 
+    }  */
     @media(min-width: 1575px) {
-      font-size: 90%;
+      font-size: 80%;
     } 
   
     body {

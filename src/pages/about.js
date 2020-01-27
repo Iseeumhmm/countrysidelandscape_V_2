@@ -15,11 +15,12 @@ const PageContainer = styled.div`
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
-  background-color: #D3DBEE;
-  color: #151D51;
+  background-color: ${ ({theme: {lightGrey}}) => lightGrey };
+  color: ${ ({theme: {darkGrey}}) => darkGrey };
   max-width: 100%;
   overflow-x: hidden;
   .headline { padding: 110vw 0 0; }
+  h1 { color: ${ ({theme: {darkGrey}}) => darkGrey }; }
   @media(min-width: 1081px) {
     background-image: url(${backgroundLarge});
     .headline { 
@@ -29,10 +30,8 @@ const PageContainer = styled.div`
       h1 { 
         width: 30rem;
         font-size: 5.2rem; 
-        border-radius: 10px;
-        background-color: #151D51;
-        color: #D3DBEE;
-
+        border-radius: 10px; 
+        background-color: rgba(19, 114, 176, .5);
         }
     }
     .shadow {
@@ -41,7 +40,7 @@ const PageContainer = styled.div`
       left: 50%;
       top: 10.05vw;
       transform: translateX(calc(-50%));
-      height: 95%;
+      height: 94%;
       box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.75);
     }
   }
@@ -76,13 +75,13 @@ const TextContainer = styled.div`
   width: 95%;
   margin: auto;
   h1 {
-    color: #151D51;
+    color: ${ ({theme: {lightGrey}}) => lightGrey };
     text-align: center;
-    padding: 2rem 0 2rem; 
+    padding: 1.75rem;
   }
-  p {
+  /* p {
     padding-top: 2rem;
-  }
+  } */
   b {
     font-weight: 700;
   }
@@ -125,7 +124,7 @@ export default function About() {
       <div className="headline">
         <h1 style={{textAlign: "center"}}>Our Story</h1>
       </div>
-        <div style={{width: '100%', textAlign: 'center'}}>
+        <div style={{width: '100%', textAlign: 'center', paddingBottom: "3.2rem"}}>
           <Photo src={john}/>
           <h2>John Wall</h2>
         </div>
@@ -134,7 +133,7 @@ export default function About() {
         </p>
       </TextContainer>
       <TextContainer>
-        <div style={{width: '100%', textAlign: 'center'}}>
+        <div style={{width: '100%', textAlign: 'center', padding: "3.2rem 0"}}>
           <Photo src={vince}/>
           <h2>Vince Long</h2>
         </div>

@@ -46,7 +46,7 @@ const TextContainer = styled.div`
   width: 95%;
   p {
     margin-top: 0;
-    color: #fff;
+    color: ${({ theme: {lightGrey} }) => lightGrey };
     font-weight: 400;
     font-family: 'Alegreya Sans SC';
     font-size: 4rem;
@@ -74,7 +74,7 @@ const Logo = styled.div`
 
 const ContactButton = styled.button`
   background-color: rgba(255,255,255, .1);
-  color: white;
+  color: ${({ theme: {lightGrey} }) => lightGrey };
   border: none;
   border-radius: 4px;
   margin-top: 1.5rem;
@@ -84,13 +84,13 @@ const ContactButton = styled.button`
   width: 11rem;
   height: 4rem;
   @media(min-width: 1575px){
-    background-color: #93D30A;
+    background-color: ${({ theme: {highlight} }) => highlight };
   }
 `
 
 const Address = styled.div`
   margin-top: 5rem;
-  color: white; 
+  color: ${({ theme: {lightGrey} }) => lightGrey };
   width: 100%; 
   text-align: center; 
   h2 { margin-bottom: 0; }
@@ -103,7 +103,7 @@ const Address = styled.div`
 
 const FooterTextContainer = styled.div`
   h2, a { 
-    color: #FFFFFFFF; 
+    color: ${({ theme: {lightGrey} }) => lightGrey }; 
     font-size: 1.75rem;
   }
   a { font-size: 2rem; }
@@ -116,7 +116,6 @@ const FooterTextContainer = styled.div`
     transform: translateX(-50%);
   }
   @media(min-width: 1575px){
-    bottom: 4.75rem;
    h2 { margin: 0 }
   }
 `

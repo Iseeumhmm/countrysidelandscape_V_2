@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react'
-import { Head } from 'react-static'
+// import { Head } from 'react-static'
 import { Link } from 'components/Router'
 import styled, { keyframes } from 'styled-components'
 import { useRouteData } from 'react-static'
@@ -14,11 +14,15 @@ const logo = require('../images/logos/LargeLogoBlack.png')
 const catalogue = require('../../public/Leisure Pools Consumer Brochure 2019-0424.pdf')
 
 const PageContainer = styled.div`
-    background-color: #2C5E7E;
+    background-color: ${({theme: {poolPageBackground}}) => poolPageBackground };
     height: auto;
+    max-width: 2300px;
+    position: relative;
+    margin: auto;
 `
 const BackgroundContainer = styled.div`
 width: 100vw;
+max-width: 2300px;
 background-image: url(${background});
 background-repeat: no-repeat;
 background-size: contain;
@@ -26,14 +30,10 @@ background-position: top center;
 @media( min-width: 950px ) {
     background-image: url(${backgroundLarge});
 }
-@media( min-width: 1575px ) {
-    /* background-size: cover; */
-}
 `
 const Logo = styled.div`
     position: absolute;
     top: 48vw;
-    /* top: 22rem; */
     left: calc(50% - 1rem);
     transform: translateX(-50%);
     width: 23rem;
@@ -54,7 +54,7 @@ const Logo = styled.div`
         width: 20vw;
         min-height: 10vw;
     }
-    @media( min-width: 1081px ) {
+    @media( min-width: 1295px ) {
         top: 0;
         left: 50%;
         width: 21rem;
@@ -67,23 +67,18 @@ const swipeGesture = keyframes`
 100%    { transform: translateX(50px) }
 `
 const TextContainer = styled.div`
-    padding: 10px;
     border-radius: 2rem;
     width: 95%;
-    /* height: ${(instagram) => instagram ? "52rem" : "auto"}; */
     margin: auto;
     position: relative;
-    h1 { color: white; }
-    color: white;
+    h1 { color: ${({ theme: {lightGrey} }) => lightGrey }}; 
+    color: ${({ theme: {lightGrey} }) => lightGrey };
     text-align: center;
+    h2 { padding: ${({ theme: {headerPadding} }) => headerPadding }}
     p, h2 { 
         text-align: left;
-        color: white;
+        color: ${({ theme: {lightGrey} }) => lightGrey };
      }
-     /* h2 {
-         padding-top: 4rem;
-     } */
-     p { padding-bottom: 4rem; }
      img { 
          width: 5rem;
          animation: ${swipeGesture} 2s ease-in-out infinite;
@@ -92,11 +87,13 @@ const TextContainer = styled.div`
         font-family: 'Roboto',sans-serif;
         text-align: left;
     }
-    font-size: 1.25rem;
     
     &#one { 
         padding-top: 76vw; 
-        margin-bottom: 6rem; 
+        a { 
+            display: block;
+            margin: 5.2rem 0; 
+        }
     }
     @media( min-width: 675px ) {
         &#one { padding-top: 62vw; }
@@ -112,10 +109,15 @@ const TextContainer = styled.div`
         }
         width: 65%;
     }
-    @media( min-width: 1081px ) {
+    @media( min-width: 1295px ) {
+        padding: 0 1rem;
         height: 20rem;
+        
         background-color: rgba(0,0,0,.05);
         h1 { text-align: center; }
+        h2 {
+            padding: 0;
+        }
         margin-top: 0;
         width: 95%;
         &#one { 
@@ -123,9 +125,10 @@ const TextContainer = styled.div`
             grid-column: 1/6; 
             grid-row: 1;
             background-color: unset;
+            a { margin: 0; }
         }
         &#two { 
-            height: 42.5rem;
+            height: 40.75rem;
             grid-column: 4/6;
             grid-row: 2/4;
             p { padding-bottom: 0; }
@@ -160,22 +163,17 @@ const TextContainer = styled.div`
             align-items: center;
             justify-content: center;
             width: 75.5vw;
+            @media(min-width: 2300px ){
+                width: 98%;
+            }
         }
     }
-    /* @media( min-width: 1575px ) {
-        &#one {
-            padding-top: 36vw;
-        }
-        width: 69%;
-    } */
 `
 
 const ContentContainer = styled.div`
-    background-color: "#264A65";
     width: 95%;
     margin: auto;
-    /* top: 4rem; */
-    /* padding-bottom: 8rem; */
+    max-width: 1846px;
     .contact {
         width: 100%;
         height: 20rem;
@@ -184,6 +182,7 @@ const ContentContainer = styled.div`
         align-items: center;
         justify-content: center;
         a { 
+            color: ${({ theme: {lightGrey} }) => lightGrey }
             font-size: 3.2rem;
             font-weight: 700;
         }
@@ -197,7 +196,7 @@ const ContentContainer = styled.div`
         top: 9.7vw;
         width: 80.1vw;
     }
-    @media( min-width: 1081px ) {
+    @media( min-width: 1295px ) {
         .grid {
             padding: 0 2rem;
             padding-top: 34vw;
@@ -216,19 +215,16 @@ const ViewStackContainer = styled.div`
     margin: 0 auto;
     overflow: hidden;
     border-radius: 7px;
+    h2 { padding: 0; }
     @media( min-width: 675px ){
         height: 48rem;
     }
-    /* @media( min-width: 950px ){
-        height: 50rem;
-    } */
-
-    @media( min-width: 1081px ){
+    @media( min-width: 1295px ){
         height: 38rem;
     }
     
     @media( min-width: 1300px ) {
-        height: ${({instagram}) => instagram ? "35rem" : "40rem"};
+        height: 40rem;
     }
 `
 
@@ -258,9 +254,9 @@ export default function Pools() {
     }, [divWidth])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
-            <Head>
-                {/* <link rel="preload" as="image" href={background} imagesrcset={`${background} 1200w, ${backgroundLarge}, 2300w`} imagesizes="100vw" /> */}
-            </Head>
+            {/* <Head>
+                <link rel="preload" as="image" href={background} imagesrcset={`${background} 1200w, ${backgroundLarge}, 2300w`} imagesizes="100vw" />
+            </Head> */}
             <BackgroundContainer >
                 <NavBar style={{zIndex: "1000"}}/>
                 <Link to="/"><Logo/></Link>
