@@ -78,7 +78,7 @@ const Services = () => {
             {images ? images.map((each, i) =>{
                 return (
                     <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
-                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === 0 ? imageLoaded : null } alt={each.shortTitle}></img>
+                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === images.length - 1 ? imageLoaded : null } alt={each.shortTitle}></img>
                         { loaded ? ( <h3>{each.description}</h3> ) : "" }
                     </Fade>
                 )
