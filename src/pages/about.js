@@ -78,7 +78,7 @@ const TextContainer = styled.div`
   h1 {
     color: ${ ({theme: {darkGrey}}) => darkGrey };
     text-align: center;
-    padding: 1.75rem;
+    padding: ${ ({theme: {headerPadding}}) => headerPadding };
   }
   /* p {
     padding-top: 2rem;
