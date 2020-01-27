@@ -44,6 +44,7 @@ const TextContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
+  text-align: center;
   p {
     margin-top: 0;
     color: ${({ theme: {lightGrey} }) => lightGrey };
@@ -87,33 +88,21 @@ const ContactButton = styled.button`
     background-color: ${({ theme: {highlight} }) => highlight };
   }
 `
-
-const Address = styled.div`
-  margin-top: 5rem;
-  color: ${({ theme: {lightGrey} }) => lightGrey };
-  width: 100%; 
-  text-align: center; 
-  h2 { margin-bottom: 0; }
-  
-  @media(min-width: 1575px){
-    margin-top: 0;
-    margin-bottom: 2rem;
-  }
-`
-
 const FooterTextContainer = styled.div`
+  position: relative;
+  left: 50%;
+  top: 3rem;
+  transform: translateX(-50%);
+  h2:first-of-type { padding-bottom: 3rem; }
   h2, a { 
     color: ${({ theme: {lightGrey} }) => lightGrey }; 
     font-size: 1.75rem;
   }
   a { font-size: 2rem; }
-  position: absolute;
-  left: 2.5rem;
   width: 23rem;
-  bottom: 1rem;
   @media(min-width: 635px){
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%;
+    transform: translateX(-50%); */
   }
   @media(min-width: 1575px){
    h2 { margin: 0 }
@@ -153,15 +142,12 @@ export default function Contact() {
             </Link>
             <p>Make it yours</p>
             <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
-           
-            <Address>
-              <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E. Aylmer, ON</h2>
-            </Address>
-          </TextContainer>
-          <FooterTextContainer>
+            <FooterTextContainer>
+                <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E. Aylmer, ON</h2>
                 <h2 style={{textAlign: "left"}}>JOHN<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
                 <h2 style={{textAlign: "left"}}>VINCE<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
-          </FooterTextContainer>
+            </FooterTextContainer>
+          </TextContainer>
         </PageContainer>
     );
 }
