@@ -61,8 +61,8 @@ const HeaderContainer = styled.div`
   }
 `
 const Logo = styled.div`
-  width: 23rem;
-  min-height: 11rem;
+  width: 25rem;
+  min-height: 9rem;
   margin-top: 3rem;
   background-image: url(${logo});
   background-size: cover;

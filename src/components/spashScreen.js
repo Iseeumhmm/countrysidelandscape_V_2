@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
-const logo = require('../images/logos/LargeLogoSplash.png')
+const logo = require('../images/logos/LargeLogo.png')
 
 const fadeOut = keyframes` 
 0%      { opacity: 1 }
@@ -27,8 +27,8 @@ const Logo = styled.div`
         background-image: url(${logo});
 
     background-size: cover;
-    width: 30rem;
-    height: 11rem;
+    width: 25rem;
+    height: 9rem;
   
 `
 const fillAnim = keyframes` 

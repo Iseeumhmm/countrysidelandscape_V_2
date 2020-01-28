@@ -63,8 +63,8 @@ const TextContainer = styled.div`
 `
 const Logo = styled.div`
   margin:  0 auto 5rem;
-  width: 23rem;
-  min-height: 11rem;
+  width: 25rem;
+  min-height: 9rem;
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;

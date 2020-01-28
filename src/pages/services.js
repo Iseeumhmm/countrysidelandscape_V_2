@@ -4,7 +4,7 @@ import NavBar from '../containers/navigation/navbar'
 import { useRouteData, Head } from 'react-static'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
-const logo = require('../images/logos/LargeLogoSplash.png')
+const logo = require('../images/logos/LargeLogo.png')
 
 //Styles
 

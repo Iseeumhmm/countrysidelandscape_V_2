@@ -37,8 +37,8 @@ const Logo = styled.div`
     top: 48vw;
     left: calc(50% - 1rem);
     transform: translateX(-50%);
-    width: 23rem;
-    min-height: 11rem;
+    width: 25rem;
+    min-height: 9rem;
     background-image: url(${logo});
     background-size: cover;
     background-position: center center;
@@ -46,20 +46,12 @@ const Logo = styled.div`
     @media( min-width: 673px ) {
         top: 44vw;
     }
-    @media( min-width: 771px ) {
-        width: 24rem;
-        min-height: 12rem;
-    }
     @media( min-width: 950px ) {
         top: 45vw;
-        width: 20vw;
-        min-height: 10vw;
     }
     @media( min-width: 1295px ) {
-        top: 0;
+        top: 1rem;
         left: 50%;
-        width: 21rem;
-        min-height: 11rem;
     }
 `
 const swipeGesture = keyframes`
