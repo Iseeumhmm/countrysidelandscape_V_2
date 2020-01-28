@@ -12,7 +12,7 @@ var ids = require('short-id')
 
 const ViewPagerContainer = styled.div`
     position: relative;
-    height: 30rem;
+    height: 33rem;
     overflow: hidden;
     @media(min-width: 418px) {
       height: 72vw;

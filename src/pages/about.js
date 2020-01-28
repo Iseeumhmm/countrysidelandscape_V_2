@@ -116,7 +116,6 @@ const Photo = styled.img`
 
 export default function About() {
   const { ourStoryContent } = useRouteData()
-  console.log('this; ', ourStoryContent)
 
   return (
     <PageContainer>
@@ -129,7 +128,6 @@ export default function About() {
       <div className="headline">
         <h1 style={{textAlign: "center"}}>Our Story</h1>
       </div>
-      {/* ?w=1920&q=40&fl=progressive */}
         <div style={{width: '100%', textAlign: 'center', paddingBottom: "3.2rem"}}>
           <Photo src={`${ourStoryContent[1].fields.headShotPhoto.fields.file.url}?w=300&fl=progressive`}/>
           <h2>{ourStoryContent[1].fields.name}</h2>
