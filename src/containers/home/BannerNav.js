@@ -13,7 +13,7 @@ const NavList = styled.ul`
         a { 
             color: white; 
             text-shadow: 2px 2px 1px  rgba(0,0,0, 0.5);
-
+            font-weight: 700;
         }
         font-size: 1.3rem;
         list-style-type:none;

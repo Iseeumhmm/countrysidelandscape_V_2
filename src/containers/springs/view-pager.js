@@ -27,6 +27,7 @@ const ViewPagerContainer = styled.div`
         will-change: transform;
         h2 { 
           text-decoration: underline;
+          color: ${ ({theme: {highlight}}) => highlight };
         }
         &  > a > p {
           position: relative; 
@@ -89,7 +90,6 @@ export default function Viewpager(propsFrom) {
   const [ passedType ] = useState(propsFrom.slideType)
   const [ passedImages  ] = useState(propsFrom.slideImages)
   const [ pages, setPages ] = useState([])
-
 
   useEffect(() => {
     let waitingForContent = true

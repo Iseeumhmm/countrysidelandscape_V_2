@@ -23,6 +23,8 @@ const theme = {
   darkGrey: "#3b4145",
   lightGrey: "#f9f9fa",
   highlight: "#8AD30D",
+  highlightSecondary: "#C5893D",
+
 
 
   // Pool Page

@@ -9,10 +9,11 @@ const FooterNavContainer = styled.div`
     color: black;
     z-index: 10;
     font-weight: 700;
-    a { color: ${ ({light}) => light ? ({theme: {lightGrey}}) => lightGrey : ({theme: {darkGrey}}) => darkGrey } }
+    font-size: 2rem;
+    a { color: ${ ({light}) => light ? ({theme: {lightGrey}}) => lightGrey : ({theme: {highlight}}) => highlight } }
     ul {
         padding-inline-start: 0;
-        padding: 5.2rem 0;
+        padding: 3.2rem 0 5.2rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -31,6 +32,7 @@ const FooterNavContainer = styled.div`
         position: absolute;
         bottom: 0;
         left: 50%;
+        color: ${ ({light}) => light ? ({theme: {lightGrey}}) => lightGrey : ({theme: {darkGrey}}) => darkGrey };
         transform: translateX(-50%);
     }
 `
@@ -44,7 +46,7 @@ const FooterNav = (props) => {
                 <li style={ props.ourStory ? {display: "none"} : null }><Link to="/about">Our Story</Link></li>
                 <li style={ props.ourWork ? {display: "none"} : null }><Link to="/pool-installs">Our Work</Link></li>
             </ul>
-            <a className="auana">Website by AUANA DIGITAL</a>
+            <a href="https://auana.ca" className="auana">Website by AUANA DIGITAL</a>
         </FooterNavContainer>
     )
 }

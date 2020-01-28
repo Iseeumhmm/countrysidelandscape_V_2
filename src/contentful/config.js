@@ -11,3 +11,4 @@ export const NEW_CDAPI_ACCESS_TOKEN = "8hLzMPwRIYNuFSDdSwuc-IQELkub6uZ-IrvTTE3nS
 export const NEW_POST_CONTENT_TYPE_ID = "galleryImagesPools"
 export const HOME_SLIDER_CONTENT_TYPE_ID = "homePageBackgroundSlide"
 export const POOL_CONTENT_TYPE_ID = "galleryImagesPools"
+export const OUR_STORY_CONTENT_TYPE_ID = "ourStoryBios"

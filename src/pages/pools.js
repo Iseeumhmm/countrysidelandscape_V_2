@@ -175,7 +175,7 @@ const ContentContainer = styled.div`
         align-items: center;
         justify-content: center;
         a { 
-            color: ${({ theme: {lightGrey} }) => lightGrey }
+            color: ${({ theme: {highlight} }) => highlight };
             font-size: 3.2rem;
             font-weight: 700;
         }
@@ -196,7 +196,6 @@ const ContentContainer = styled.div`
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             grid-gap: 10px;
-            /* grid-auto-rows: 20rem 40rem; */
         }
        
     }
@@ -247,9 +246,6 @@ export default function Pools() {
     }, [divWidth])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
-            {/* <Head>
-                <link rel="preload" as="image" href={background} imagesrcset={`${background} 1200w, ${backgroundLarge}, 2300w`} imagesizes="100vw" />
-            </Head> */}
             <BackgroundContainer >
                 <NavBar style={{zIndex: "1000"}}/>
                 <Link to="/"><Logo/></Link>
@@ -263,7 +259,6 @@ export default function Pools() {
                     </TextContainer>
                     <TextContainer id="two">
                         <ViewStackContainer id="view-pager-container">
-                            {/* <h2>View our past projects</h2> */}
                             { divWidth ? <ViewStack width={divWidth} slideType="contentful" slideImages={contentfulImages}/> : ""}
                         </ViewStackContainer>
                         <img src={swipe} alt="swipe gesture"></img>

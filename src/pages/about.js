@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
+import { useRouteData } from 'react-static'
+import Markdown from 'react-markdown'
 import NavBar from '../containers/navigation/navbar'
 import FooterNav from '../containers/navigation/footerNav'
 const background = require('../images/backgrounds/about.jpg')
 const backgroundLarge = require('../images/backgrounds/aboutLarge.jpg')
 const logo = require('../images/logos/LargeLogoBlack.png')
-const john = require('../images/Headshots/John.png')
-const vince = require('../images/Headshots/Vince.png')
 
 // Styles
 const PageContainer = styled.div`
@@ -84,9 +84,6 @@ const TextContainer = styled.div`
     text-align: center;
     padding: ${ ({theme: {headerPadding}}) => headerPadding };
   }
-  /* p {
-    padding-top: 2rem;
-  } */
   b {
     font-weight: 700;
   }
@@ -114,10 +111,13 @@ const Photo = styled.img`
   border-radius: 15rem;
   object-fit: cover;
   width: 25rem;
-  margin:  4rem auto 0;
+  margin: 4rem auto 0;
 `
 
 export default function About() {
+  const { ourStoryContent } = useRouteData()
+  console.log('this; ', ourStoryContent)
+
   return (
     <PageContainer>
       <HeaderContainer>
@@ -129,20 +129,19 @@ export default function About() {
       <div className="headline">
         <h1 style={{textAlign: "center"}}>Our Story</h1>
       </div>
+      {/* ?w=1920&q=40&fl=progressive */}
         <div style={{width: '100%', textAlign: 'center', paddingBottom: "3.2rem"}}>
-          <Photo src={john}/>
-          <h2>John Wall</h2>
+          <Photo src={`${ourStoryContent[1].fields.headShotPhoto.fields.file.url}?w=300&fl=progressive`}/>
+          <h2>{ourStoryContent[1].fields.name}</h2>
         </div>
-        <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
-        Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long.
-        </p>
+        <Markdown source={ourStoryContent[1].fields.bioText} />
       </TextContainer>
       <TextContainer>
         <div style={{width: '100%', textAlign: 'center', padding: "3.2rem 0"}}>
-          <Photo src={vince}/>
-          <h2>Vince Long</h2>
+          <Photo src={`${ourStoryContent[0].fields.headShotPhoto.fields.file.url}?w=300&fl=progressive`}/>
+          <h2>{ourStoryContent[0].fields.name}</h2>
         </div>
-      <p>{`{ Vince's Bio Here }`}<br/>Vince brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa .......<br/>......<br/>......<br/>......</p>
+        <Markdown source={ourStoryContent[0].fields.bioText} />
       </TextContainer>
       <TextContainer>
         <h1>Our Mission</h1>

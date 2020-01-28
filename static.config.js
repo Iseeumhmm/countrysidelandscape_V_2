@@ -2,13 +2,14 @@ import path from 'path'
 // import axios from 'axios'
 import fetchHomePageImages from './src/contentful/fetchHomePageImages'
 import fetchWorkImages from './src/contentful/fetchWorkImages'
-
+import fetchOurStoryContent from './src/contentful/fetchOurStoryContent.js'
 
 
 export default {
   getRoutes: async () => {
     const homePageSliderImages = await fetchHomePageImages()
     const contentfulImages = await fetchWorkImages()
+    const ourStoryContent = await fetchOurStoryContent()
     let page = (key) => {
       let pageImages = [ key, contentfulImages[key] ]
       return pageImages
@@ -22,22 +23,11 @@ export default {
       },
       {
         path: '/about',
-        template: 'src/pages/about.js'
+        template: 'src/pages/about.js',
+        getData: () => ({
+          ourStoryContent
+        })
       },
-      // {
-      //   path: '/our-work',
-      //   template: 'src/pages/ourWork.js',
-      //   getData: () => ({
-      //     contentfulImages
-      //   })
-      // },
-      // {
-      //   path: '/test-page',
-      //   template: 'src/pages/test-page.js',
-      //   getData: () => ({
-      //     homePageSliderImages
-      //   })
-      // },
       {
         path: '/contact',
         template: 'src/pages/contact.js'
