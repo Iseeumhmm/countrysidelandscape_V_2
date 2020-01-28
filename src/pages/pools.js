@@ -6,6 +6,7 @@ import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
 import ViewStack from '../containers/springs/view-pager'
 import instagram from '../components/helperFuncrtions/getInstagram'
+import FooterNav from '../containers/navigation/footerNav'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
 const swipe = require('../images/icons/swipe-left.png')
@@ -311,6 +312,7 @@ export default function Pools() {
                         <Link to="/contact">Get in touch with us!</Link>
                     </div>
                 </ContentContainer>
+                <FooterNav ourWork light/>
             </BackgroundContainer>
         </ PageContainer>
     )

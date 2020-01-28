@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
+import FooterNav from '../containers/navigation/footerNav'
 const background = require('../images/backgrounds/about.jpg')
 const backgroundLarge = require('../images/backgrounds/aboutLarge.jpg')
 const logo = require('../images/logos/LargeLogoBlack.png')
@@ -38,6 +39,7 @@ const PageContainer = styled.div`
     }
     .shadow {
       position: absolute;
+      z-index: 1;
       width: 79.4%;
       left: 50%;
       top: 10.05vw;
@@ -76,6 +78,7 @@ const Logo = styled.div`
 const TextContainer = styled.div`
   width: 95%;
   margin: auto;
+  z-index: 2;
   h1 {
     color: ${ ({theme: {darkGrey}}) => darkGrey };
     text-align: center;
@@ -131,7 +134,7 @@ export default function About() {
           <h2>John Wall</h2>
         </div>
         <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
-        Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.
+        Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long.
         </p>
       </TextContainer>
       <TextContainer>
@@ -139,9 +142,7 @@ export default function About() {
           <Photo src={vince}/>
           <h2>Vince Long</h2>
         </div>
-        <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
-        Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.
-        </p>
+      <p>{`{ Vince's Bio Here }`}<br/>Vince brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa .......<br/>......<br/>......<br/>......</p>
       </TextContainer>
       <TextContainer>
         <h1>Our Mission</h1>
@@ -158,6 +159,7 @@ export default function About() {
         <p>To assemble a friendly, professional staff who will cater to our clients’ needs by offering services and products that create beautiful outdoor living spaces.
         </p>
       </TextContainer>
+      <FooterNav ourStory/>
   </PageContainer>
   )
 }
