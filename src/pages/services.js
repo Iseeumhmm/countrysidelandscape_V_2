@@ -57,6 +57,7 @@ const Services = () => {
             }
             imageArray.push(image)
         })}
+        console.log('image arrray: ', imageArray)
         setImages(imageArray)
     }, [])
     const imageLoaded = () => {
@@ -78,8 +79,8 @@ const Services = () => {
             {images ? images.map((each, i) =>{
                 return (
                     <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
-                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === images.length - 1 ? imageLoaded : null } alt={each.shortTitle}></img>
-                        { loaded ? ( <h3>{each.shortTitle}</h3> ) : "" }
+                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === images.length - 1 ? imageLoaded : null } alt={each.title}></img>
+                        { loaded ? ( <h3>{each.title}</h3> ) : "" }
                     </Fade>
                 )
             }) : ""}
