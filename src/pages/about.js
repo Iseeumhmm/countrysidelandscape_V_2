@@ -44,7 +44,7 @@ const PageContainer = styled.div`
       left: 50%;
       top: 10.05vw;
       transform: translateX(calc(-50%));
-      height: 94%;
+      height: 93%;
       box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.75);
     }
   }

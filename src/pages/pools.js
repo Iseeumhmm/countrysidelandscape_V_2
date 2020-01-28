@@ -30,6 +30,7 @@ background-size: contain;
 background-position: top center;
 @media( min-width: 950px ) {
     background-image: url(${backgroundLarge});
+    #footer { padding-top: 12%; }
 }
 `
 const Logo = styled.div`
@@ -61,7 +62,7 @@ const swipeGesture = keyframes`
 `
 const TextContainer = styled.div`
     border-radius: 2rem;
-    width: 95%;
+    /* width: 95%; */
     margin: auto;
     position: relative;
     h1 { color: ${({ theme: {lightGrey} }) => lightGrey }}; 
@@ -175,7 +176,7 @@ const ContentContainer = styled.div`
         align-items: center;
         justify-content: center;
         a { 
-            color: ${({ theme: {highlight} }) => highlight };
+            color: ${({ theme: {highlightSecondary} }) => highlightSecondary };
             font-size: 3.2rem;
             font-weight: 700;
         }

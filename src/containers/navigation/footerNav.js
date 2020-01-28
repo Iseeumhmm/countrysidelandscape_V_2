@@ -10,7 +10,8 @@ const FooterNavContainer = styled.div`
     z-index: 10;
     font-weight: 700;
     font-size: 2rem;
-    a { color: ${ ({light}) => light ? ({theme: {lightGrey}}) => lightGrey : ({theme: {highlight}}) => highlight } }
+    a { color: ${ ({light}) => light ? ({theme: {lightGrey}}) => lightGrey : ({theme: {highlightSecondary}}) => highlightSecondary } }
+    text-decoration: underline;
     ul {
         padding-inline-start: 0;
         padding: 3.2rem 0 5.2rem;
@@ -40,7 +41,7 @@ const FooterNavContainer = styled.div`
 const FooterNav = (props) => {
 
     return (
-        <FooterNavContainer light={props.light}>
+        <FooterNavContainer id="footer" light={props.light}>
             <ul>
                 <li style={ props.contact ? {display: "none"} : null }><Link to="/contact">Contact</Link></li>
                 <li style={ props.ourStory ? {display: "none"} : null }><Link to="/about">Our Story</Link></li>

@@ -27,7 +27,7 @@ const ViewPagerContainer = styled.div`
         will-change: transform;
         h2 { 
           text-decoration: underline;
-          color: ${ ({theme: {highlight}}) => highlight };
+          /* color: ${ ({theme: {highlightSecondary}}) => highlightSecondary }; */
         }
         &  > a > p {
           position: relative; 
