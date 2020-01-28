@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+import ManageScroll from './containers/navigation/ManageScroll'
 
 // Your top level component
 import App from './App'
@@ -19,7 +20,10 @@ if (typeof document !== 'undefined') {
   const render = Comp => {
     renderMethod(
       <AppContainer>
-          <Comp />
+          <React.Fragment>
+            <ManageScroll />
+            <Comp />
+          </React.Fragment>
       </AppContainer>,
       target
     )

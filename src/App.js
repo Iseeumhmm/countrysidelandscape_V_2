@@ -4,10 +4,6 @@ import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-// const backgroundPools = require('./images/backgrounds/poolPage.jpg')
-// const contactBackground = require('./images/backgrounds/contact.jpg')
-// const og_image = require('./images/backgrounds/og_imageOpt.jpg')
-
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
@@ -141,10 +137,9 @@ function App() {
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Countryside Landscape and Pools" />
           <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
-          <meta property="og:url" content="https://review.rickheffren.com" />
+          <meta property="og:url" content="https://countryside.rickheffren.com" />
           <meta property="og:image" content="http://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg" />
           <meta property="og:image:secure_url" content="https://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg" />
-          
           <title>Your London Pool Builder</title>
       </Head>
       <ThemeProvider theme={theme}>
