@@ -22,6 +22,7 @@ const ViewPagerContainer = styled.div`
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 100vh;
     will-change: transform;
   }
   .split_page {
@@ -80,7 +81,7 @@ export default function Viewpager(props) {
         style={{ display, transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}
         className="main"
         >
-          <div className="split_page">
+          <div className={ i % 2 === 0 ?  "" : "split_page"}>
             <div 
               className={ i % 2 === 0 ?  "" : "left"} 
               style={{ display: i % 2 === 0 ? "none" : "flex" }}
