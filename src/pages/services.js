@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
 import { useRouteData, Head } from 'react-static'
+import ViewPager from '../containers/springs/view-pager'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
 const logo = require('../images/logos/LargeLogo.png')
@@ -9,44 +10,46 @@ const logo = require('../images/logos/LargeLogo.png')
 //Styles
 
 const PageContainer = styled.div`
-    width: 95%;
-    margin: auto;
-    position: relative;
-    max-width: 100%;
-    overflow-x: hidden;
-    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100vh;
     h1 {color: ${({theme: {darkGrey}}) => darkGrey}; }
     h3 {
-        margin-top: -.5rem;
         color: ${({theme: {darkGrey}}) => darkGrey};
     }
-    img {
-        border-radius: 10px;
+    .full_page {
+        display: none;
+        width: 100%;
+        height: 100vh;
+        border: 3px solid blue;
     }
-    @media( min-width: 775px ) {
-        width: 65%;
-    } 
 `
 const Logo = styled.div`
-  width: 23rem;
-  min-height: 8rem;
-  background-image: url(${logo});
-  background-size: cover;
-  background-position: center center;
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 23rem;
+    min-height: 8rem;
+    background-image: url(${logo});
+    background-size: cover;
+    background-position: center center;
+    z-index: 100;
 `
 const HeaderContainer = styled.div`
-  width: 100%;
-  height: 9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const Services = () => {
     const pageImages = useRouteData()
     const [images, setImages] = useState(null)
     const [loaded, setLoaded] = useState(false)
-
     let imageArray = []
     useEffect(() => {
         if (pageImages[1]) { pageImages[1].forEach( each => {
@@ -57,7 +60,6 @@ const Services = () => {
             }
             imageArray.push(image)
         })}
-        console.log('image arrray: ', imageArray)
         setImages(imageArray)
     }, [])
     const imageLoaded = () => {
@@ -72,18 +74,12 @@ const Services = () => {
                 }) : null}
             </Head>
             <HeaderContainer id="header">
-                <NavBar black style={{zIndex: "1000"}}/>
+                {/* <NavBar black style={{zIndex: "1000"}}/> */}
                 <Link to="/"><Logo /></Link>
             </HeaderContainer>
-            <h1 id="Heading">{pageImages[0]}</h1>
-            {images ? images.map((each, i) =>{
-                return (
-                    <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
-                        <img src={each.image} style={ imageLoaded ? {dipslay: "block"} : {display: "none"} } onLoad={ i === images.length - 1 ? imageLoaded : null } alt={each.title}></img>
-                        { loaded ? ( <h3>{each.title}</h3> ) : "" }
-                    </Fade>
-                )
-            }) : ""}
+            
+            <ViewPager images={pageImages} />
+           
         </PageContainer>
     )
 
