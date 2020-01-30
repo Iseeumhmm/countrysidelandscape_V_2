@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
 import { useRouteData, Head } from 'react-static'
-import ViewPager from '../containers/springs/view-pager'
+import ViewPager from '../containers/springs/ViewPagerServices'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
 const logo = require('../images/logos/LargeLogo.png')
