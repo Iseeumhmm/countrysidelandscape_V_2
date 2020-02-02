@@ -119,7 +119,7 @@ export default {
       // },
     ]
   },
-  siteRoot: 'https://countryside.rickheffren.com',
+  siteRoot: 'https://countrysidelandscape.ca',
   webpack: (config, { stage }) => {
     if (stage === 'prod') {
       config.entry = ['babel-polyfill', config.entry]
