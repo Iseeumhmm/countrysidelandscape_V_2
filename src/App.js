@@ -1,5 +1,6 @@
 import "babel-polyfill";
 import React from 'react'
+import ReactGA from 'react-ga';
 import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
@@ -127,8 +128,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-
 function App() {
+  const trackingId = "UA-153961441-2"; 
+  ReactGA.initialize(trackingId);
   return (
     <Root>
       <Head>
