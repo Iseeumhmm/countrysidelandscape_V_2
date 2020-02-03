@@ -84,19 +84,19 @@ function Home() {
   }
   useEffect( () => {
 
-    let toPreload = []
-        homePageSliderImages.forEach( link => {
-            toPreload.push([ `${link}?w=1920&q=40&fl=progressive` ])
-        })
-        // console.log(toPreload)
-        var head = document.getElementsByTagName('head')[0];
-        toPreload.forEach( each => {
-            var link = document.createElement('link');
-            link.rel = 'preload'
-            link.as = 'image'
-            link.href = each
-            head.appendChild(link);
-        })
+    // let toPreload = []
+    // homePageSliderImages.forEach( link => {
+    //     toPreload.push([ `${link}?w=1920&q=40&fl=progressive` ])
+    // })
+    // // console.log(toPreload)
+    // var head = document.getElementsByTagName('head')[0];
+    // toPreload.forEach( each => {
+    //     var link = document.createElement('link');
+    //     link.rel = 'preload'
+    //     link.as = 'image'
+    //     link.href = each
+    //     head.appendChild(link);
+    // })
 
     handleHeight(window.innerHeight)
     window.addEventListener('resize', handleHeight(window.innerHeight));
@@ -125,7 +125,7 @@ function Home() {
 
       <BannerText />
       <SocialIcons>
-        <a href="https://www.instagram.com/countrysidelandscapeaylmer/" target="_blank"><img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/></a>
+        <a href="https://www.instagram.com/countrysidelandscapeaylmer/" target="_blank" without rel="noopener noreferrer"><img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/></a>
         <a href="https://www.facebook.com/pages/category/Landscape-Company/Countryside-Landscape-1484042294955435/" target="_blank"><img src={facebook} style={{ width: "4rem", margin: "1rem" }} alt="Facebook icon"/></a>
       </ SocialIcons>
     </Container>
